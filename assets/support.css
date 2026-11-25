@@ -1,0 +1,41 @@
+/* Support-only successor of Fanout-Site: system fonts, no remote assets or animation.
+   Flat sections avoid the predecessor's narrow callout/list column at enlarged text. */
+:root {
+  color-scheme: dark;
+  font-size: 100%;
+  background: #101915;
+}
+.support-page {
+  --bg: #101915;
+  --text: #f4f6f2;
+  --accent: #bce7ad;
+  --border: #667d6c;
+  --focus: #ffe599;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+  background: var(--bg);
+  color: var(--text);
+}
+.support-page *, .support-page *::before, .support-page *::after { box-sizing: border-box; }
+.support-page .wrap { width: min(48rem, 100% - 2rem); margin-inline: auto; padding-block: clamp(1.5rem, 5vw, 3rem); }
+.support-page a { color: var(--accent); text-underline-offset: .2em; overflow-wrap: anywhere; }
+.support-page a:hover { text-decoration-thickness: .15em; }
+.support-page a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; border-radius: .15rem; }
+.support-page main:focus { outline: none; }
+.support-page .skip-link { position: absolute; top: -10rem; left: 1rem; z-index: 2; max-width: calc(100% - 2rem); padding: .6rem; background: var(--bg); }
+.support-page .skip-link:focus { top: 1rem; }
+.support-page h1, .support-page h2 { line-height: 1.2; text-wrap: balance; overflow-wrap: anywhere; }
+.support-page h1 { font-size: clamp(2rem, 6vw, 3rem); letter-spacing: -.035em; margin: 0 0 .65em; }
+.support-page h2 { font-size: 1.4rem; margin: 0 0 .8em; }
+.support-page p { max-width: 73ch; overflow-wrap: break-word; margin-block: 0 1.25rem; }
+.support-page section { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.support-page section p:last-child { margin-bottom: 0; }
+@media (max-width: 32rem) {
+  /* Fixed small gutters preserve reading width when the root text is enlarged. */
+  .support-page .wrap { width: calc(100% - 32px); }
+  .support-page h2 { font-size: 1.1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .support-page *, .support-page *::before, .support-page *::after { scroll-behavior: auto !important; }
+}
